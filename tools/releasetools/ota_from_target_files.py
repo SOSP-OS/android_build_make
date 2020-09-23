@@ -899,6 +899,20 @@ endif;
 endif;
 """ % bcb_dev)
 
+  model = target_info.GetBuildProp("ro.product.model")
+  build = target_info.GetBuildProp("ro.build.date")
+
+  script.Print("---------- SOSP-OS ----------");
+  script.Print("****   *****   ****    ***** ");
+  script.Print("*      *   *   *       *   * ");
+  script.Print("****   *   *   ****    ***** ");
+  script.Print("   *   *   *      *    *     ");
+  script.Print("****   *****   ****    *     ");
+  script.Print("-------- Android 11.0.0 -----");
+  script.Print(" Compiled: %s "%(build));
+  script.Print(" For: %s   "%(model));
+  script.Print("-----------------------------");
+  
   script.SetProgress(1)
   script.AddToZip(input_zip, output_zip, input_path=OPTIONS.updater_binary)
   metadata["ota-required-cache"] = str(script.required_cache)
